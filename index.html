@@ -8,8 +8,14 @@
         button,
         div,
         form,
+        body {
+            background: rgb(160, 80, 163);
+        }
         input {
-            margin: 10px;
+            margin: 20px;
+        }
+        .movie-btn {
+            background: whitesmoke;
         }
     </style>
 </head>
@@ -27,7 +33,7 @@
         <form id="movie-form">
             <label for="movie-input">Search Movies</label>
             <input type="text" id="movie-input">
-            <br>
+            <!-- <br> -->
 
             <!-- Button triggers new movie to be added -->
             <input id="add-movie" type="submit" value="Go!">
@@ -45,7 +51,7 @@
             function displayMovieInfo() {
 
                 var movie = $(this).attr("data-name");
-                var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + movie + "&api_key=vwU3DqmbyF2Av06X3thqlPTApGI2gdI4&limit=10";
+                var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + movie + "&api_key=vwU3DqmbyF2Av06X3thqlPTApGI2gdI4&limit=10&rating=G&rating=PG&rating=PG-13";
 
                 // Creating an AJAX call for the specific movie button being clicked
                 $.ajax({
@@ -82,7 +88,7 @@
                         // Putting the entire movie above the previous movies
                         $("#gifs-view").prepend(movieDiv);
                     }
-                    });
+                });
             };
 
             // Function for displaying movie data
